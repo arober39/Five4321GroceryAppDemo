@@ -1,17 +1,13 @@
-//
-//  Five4321GroceryAppDemoApp.swift
-//  Five4321GroceryAppDemo
-//
-//  Created by Alexis Roberson on 11/3/25.
-//
-
 import SwiftUI
 
 @main
 struct Five4321GroceryAppDemoApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
